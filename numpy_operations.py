@@ -46,7 +46,7 @@ print(zero_2d.size)
 print(ones.size)
 
 #array with numbers in range
-n=np.arange(0,41,2)
+n=np.arange(1,41,2)
 print(n)
 
 #permuntation(differnt arrangments)
@@ -57,3 +57,41 @@ print(np.random.permutation(n))
 #array of random numbers
 print(np.random.randint(2,38,10))
 print(np.random.randint(2,38,(3,3)))
+
+#reshaping the array
+raw=n.reshape(4,5)
+print(raw)
+
+#sorting array
+random_array=np.random.randint(1,50,10)
+print(random_array)
+print(np.sort(random_array))
+
+#slicing and array
+print(random_array[2:7])
+
+print(random_array[:7])
+print(random_array[2:])
+print(random_array[::2])
+print(random_array[7:2:-1])
+print(random_array[::-1])
+
+#slicing 2D array
+print(raw)
+print(raw[1:3,1:4])
+
+#selecting multiple index
+print(random_array)
+print(random_array[[5,6,3,4,2]])
+
+#conditional slicing
+print(random_array[random_array % 2 == 0])
+print(random_array[random_array >= 20])
+
+#evaluating expressions 
+r=np.random.randint(5,15,15)
+h=np.random.randint(15,20,15)
+v=np.pi*r**2*h
+print(r)
+print(h)
+print(v)
