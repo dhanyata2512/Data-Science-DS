@@ -48,3 +48,39 @@ print(titanic_df[(titanic_df["Age"]<18)&(titanic_df["Pclass"]==1)])# & --> and  
 #slicing with index
 print(titanic_df.iloc[10:20:2,2:5])
 print(titanic_df.iloc[[13,14,5,7,34,67,92],[2,3,5]])
+
+#conditional slicing
+print(titanic_df.loc[titanic_df["Age"]<18,["Name","Pclass"]])
+
+#record of oldest passenger
+max=titanic_df["Age"].max()
+print(titanic_df.loc[titanic_df["Age"]==max,["Name","Age"]])
+
+#change values
+titanic_df["Name"].iloc[0:3] =["a","b","c"]
+print(titanic_df.head())
+
+#add column
+titanic_df["50% OFF"]=titanic_df["Fare"]/2
+print(titanic_df)
+
+#rename column
+titanic_df.rename(columns={"Survived":"Lived","Parents/Children Aboard":"Family" },inplace=True)
+print(titanic_df.columns)
+
+#create csv from data frame
+titanic_df.to_csv("new_titanic.csv")
+
+#sorting
+print(titanic_df.sort_values(by="Name"))
+
+#replacing value
+titanic_df["Sex"].replace({"male":"m","female":"f"},inplace=True)
+print(titanic_df["Sex"])
+
+#agregation Fuction
+print(titanic_df.agg({"Age":["min","max"],"Fare":["sum","mean"],"Name":["count"]}))
+
+#grouping
+print(titanic_df.groupby("Pclass").max())
+print(titanic_df.groupby(["Pclass","Sex"]).min())
