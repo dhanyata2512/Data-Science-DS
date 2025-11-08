@@ -84,3 +84,9 @@ print(titanic_df.agg({"Age":["min","max"],"Fare":["sum","mean"],"Name":["count"]
 #grouping
 print(titanic_df.groupby("Pclass").max())
 print(titanic_df.groupby(["Pclass","Sex"]).min())
+
+#working with string data
+print(titanic_df["Name"].str.lower())
+print(titanic_df["Name"].str.split().str.get(-1))
+print(titanic_df.groupby(["Pclass","Sex"]).min())
+
